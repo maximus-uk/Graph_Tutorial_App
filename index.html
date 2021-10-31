@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://unpkg.com/@microsoft/mgt/dist/bundle/mgt-loader.js"></script>
+        <style src="styles.css"></style> 
+        <style>
+            body {
+                background-color:black;   
+            }
+            mgt-login {
+                --padding: 30px ; 
+                --button-color--hover:grey;
+                --button-background-color:slategrey;
+                --popup-color:slategrey;
+            }
+            mgt-agenda{
+                --agenda-header-font-size:24px;
+                --event-padding:20px;
+                --event-background-color:slategrey;
+                --event-box-shadow:grey;   
+            }
+        </style>   
+    </head>
+    <body class="mgt-dark">
+        <mgt-msal2-provider client-id="99eeca9f-6d8f-4d75-9a68-706d036f78ef"></mgt-msal2-provider>
+        <mgt-login>
+            <template data-type="signed-in-button-content" > 
+                <div>
+                    {{personDetails.mail}}
+                </div>
+            </template>    
+        </mgt-login>
+        <mgt-agenda class="agenda"
+            date="March 9, 2021"
+            days="3"
+            group-by-day>
+        </mgt-agenda>
+        <mgt-tasks></mgt-tasks>
+        <mgt-people-picker></mgt-people-picker>  
+    </body>
+</html>
